@@ -6,6 +6,7 @@ import { IoIosSearch } from "react-icons/io";
 import { FaRegUser } from "react-icons/fa";
 import { CiHeart } from "react-icons/ci";
 import { HiOutlineShoppingCart } from "react-icons/hi2";
+import avatar from "../assets/avatar.png"
 
 
 
@@ -13,6 +14,7 @@ import { HiOutlineShoppingCart } from "react-icons/hi2";
 
 
  function NavBar() {
+  const currentUser= true;
    return (
      <header className='max-w-screen-2xl  mx-auto px-4 py-6'>
                <nav className='flex  justify-between  items-center'>
@@ -31,7 +33,20 @@ import { HiOutlineShoppingCart } from "react-icons/hi2";
       </div>
 
          <div className='flex relative items-center md:space-x-3 space-x-2'>
-           <FaRegUser className='size-6 '/>
+          <div>
+            {currentUser? <>
+
+            <button>
+              <img src={avatar} alt='user'/>
+            </button>
+            
+            </>:
+            <Link to="/login">
+           
+            <FaRegUser className='size-6 '/>
+            </Link>
+            }
+          </div>
            <button className='hidden sm:block'>
            <CiHeart className='size-6 '/>
            </button>
